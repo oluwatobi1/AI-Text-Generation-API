@@ -23,7 +23,7 @@ def test_register(client,  user_test, expected_status, expected_value):
 
 
 login_test_cases = [
-    pytest.param({"username": "existing_user", "password":"correct_password"}, 200, "existing_user", id="LOGIN:USER", ), # Valid user
+    pytest.param({"username": "existing_user", "password":"correct_password"}, 200, "existing_user", id="LOGIN:VALID_USER", ), # Valid user
     pytest.param({"username": "user1", "password":"wrong_password"}, 401, None, id="LOGIN:WRONG_PASSWORD"), # Wrong password
     pytest.param( {"username": "wrong_user", "password":"sample_password"}, 401, None, id="LOGIN:USER_NOT_EXIST"), # User does not exist
     pytest.param({"username": "", "password": "sample_password"}, 422, None, id="LOGIN:EMPTY_USERNAME"),
