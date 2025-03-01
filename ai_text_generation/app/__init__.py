@@ -11,10 +11,11 @@ jwt = JWTManager()
 
 
 
-def create_app():
+def create_app(config_class=Config):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config_class)
     api = Api(app)
+    
     @app.route("/")
     def home():
         return "<h3>AI Text Generation</h3></br><h3>Visit  <a href='/swagger-ui'>Swagger</a>  documentation</h3>"

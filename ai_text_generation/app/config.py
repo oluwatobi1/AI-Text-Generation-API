@@ -7,7 +7,6 @@ class Config:
     API_TITLE = "AI Text Generation"
     API_VERSION = "v1"
     OPENAPI_VERSION = "3.0.2"
-    OPENAPI_VERSION = "3.0.2"
     OPENAPI_JSON_PATH = "api-spec.json"
     OPENAPI_URL_PREFIX = "/"
     OPENAPI_REDOC_PATH = "/redoc"

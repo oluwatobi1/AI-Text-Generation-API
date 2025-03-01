@@ -1,7 +1,6 @@
 import uuid
 from app import db
 from werkzeug.security import check_password_hash, generate_password_hash
-from sqlalchemy.dialects.postgresql import UUID
 
 class User(db.Model):
     id = db.Column(db.String(32), primary_key=True, default=lambda: uuid.uuid4().hex ,unique=True, nullable=False)
