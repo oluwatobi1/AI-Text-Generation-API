@@ -1,8 +1,10 @@
+import uuid
 from app import db
 from werkzeug.security import check_password_hash, generate_password_hash
+from sqlalchemy.dialects.postgresql import UUID
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4,unique=True, nullable=False)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
 
@@ -17,10 +19,13 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
     
+    def __repr__(self):
+        return f"<User {self.username}>"
+    
 
 class GeneratedText(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True, nullable=False)
+    user_id = db.Column(UUID(as_uuid=True), db.ForeignKey("user.id"), nullable=False)
     prompt = db.Column(db.Text, nullable=False)  
     response = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, default= db.func.current_timestamp())

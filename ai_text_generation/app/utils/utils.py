@@ -1,4 +1,5 @@
 from flask import jsonify
+from functools import wraps
 
 def response(data, code=0, msg="success", status=200):
     '''
@@ -21,3 +22,17 @@ def error_response(msg, code=1, status=400):
         "code": code,
         "data": None,
     }), status
+
+
+
+def custom_response(schema, code=0, msg="success", status=200, many=False):
+    """Custom response decorator for Flask-Smorest routes."""
+
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            raw_data = func(*args, **kwargs)  
+            return response(data=schema(many=many).dump(raw_data), code=code, msg=msg, status=status)
+        return wrapper
+
+    return decorator

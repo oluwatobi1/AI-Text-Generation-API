@@ -24,5 +24,7 @@ def create_app():
     jwt.init_app(app)
 
     from app.routes.auth_routes import auth
+    from app.routes.textgen_routes import text_gen
     api.register_blueprint(auth, url_prefix="/auth")
+    api.register_blueprint(text_gen, url_prefix="/generate-text")
     return app

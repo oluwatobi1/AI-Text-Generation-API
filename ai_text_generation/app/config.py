@@ -1,4 +1,7 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Config:
     API_TITLE = "AI Text Generation"
@@ -23,6 +26,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///site.db') 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_SECRET_KEY = os.getenv("JWT_SECRET", "random_jwt_secret_key")
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
+    AI_MODEL_NAME = os.getenv("AI_MODEL_NAME", "llama3-8b-8192")
+    AI_MODEL_PROVIDER = os.getenv("AI_MODEL_PROVIDER", "groq")
     PORT = os.getenv("PORT", 8000)
