@@ -16,25 +16,28 @@ def test_app():
 
 @pytest.fixture
 def client(test_app):
-    return test_app.test_client()
+    with test_app.test_client() as client:
+        return client
 
 @pytest.fixture
 def db_session(test_app):
     with test_app.app_context():
         yield db.session
-        db.rollback()
+        db.session.rollback()
+
 
 @pytest.fixture
 def test_user(db_session):
-    user = User(username="test_user")
-    user.set_password("test_password")
+    user = User(username="existing_user")
+    user.set_password("correct_password")
     db_session.add(user)
     db_session.commit()
     return user
 
 @pytest.fixture
-def auth_header(test_user):
-    response = client.post(url_for("auth.login"), json={"username": test_user.username, "password": "test_password"})
-    token = response.json.get("data").get("token")
-    return {"Authorization": f"Bearer {token}"}
+def auth_header(test_user, client):
+    with client.application.test_request_context():
+        response = client.post(url_for("auth.login"), json={"username": test_user.username, "password": "test_password"})
+        token = response.json.get("data").get("token")
+        return {"Authorization": f"Bearer {token}"}
 

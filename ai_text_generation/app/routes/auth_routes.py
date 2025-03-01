@@ -33,6 +33,12 @@ def register(data):
 def login(data):
     user, password = data.get("username"), data.get("password")
     user = User.query.filter_by(username=user).first()
+
+
+    if not user:
+        return error_response("user nto foundexist ", status=401)
+    
+
     if user and user.check_password(password):
         token = create_access_token(identity=user.id)
         return response(data={"username": user.username, "token": token})
