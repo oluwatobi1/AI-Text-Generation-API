@@ -1,7 +1,6 @@
 # AI-Powered Text Generation API
 
-## Objective
-Backend service that allows users to generate and store AI-generated text using OpenAI's language models. Users should be able to authenticate, request AI-generated responses, and manage stored records.
+Service that allows users to generate and store AI-generated text using OpenAI's language models. Users should be able to authenticate, request AI-generated responses, and manage stored records.
 
 ## API Endpoints
 
