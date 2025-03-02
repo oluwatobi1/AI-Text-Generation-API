@@ -1,6 +1,8 @@
 # AI-Powered Text Generation API
 
-Service that allows users to generate and store AI-generated text using OpenAI's language models. Users should be able to authenticate, request AI-generated responses, and manage stored records.
+Allows users to generate and store AI-generated text using large language models. 
+
+Application includes authentication, requesting AI-generated responses, and managing stored records.
 
 ## API Endpoints
 
@@ -11,10 +13,8 @@ Service that allows users to generate and store AI-generated text using OpenAI's
 - **PUT /generated-text/<id>**: Update stored AI-generated text.
 - **DELETE /generated-text/<id>**: Delete stored AI-generated text.
 
-
-## Database Schema (PostgreSQL + SQLAlchemy)
-- **Users**: Stores user information and authentication details.
-- **GeneratedText**: Stores AI-generated text responses along with metadata.
+## Authentication
+- **JWT**: Uses JWT tokens for authentication.
 
 ## Third-Party API Integration
 - **OpenAI API**: Used to generate text responses based on user prompts.
@@ -41,7 +41,7 @@ To set them up,
 ## Testing
 The tests  are located in the `ai_text_generation/tests/`.
 
-## Test Files and Types
+### Test Files and Types
 
 - **Unit Tests**: Test database models, authentication, and API endpoints.
     - **ai_text_generation/tests/unit/test_auth.py**: Contains unit tests for authentication.
