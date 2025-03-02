@@ -34,11 +34,11 @@ class TextGenResource(MethodView):
         except Exception as e:
             return error_response(str(e), status=500)
     
-    @text_gen.response(200, GenerateTextSchema(many=True))
-    def get(self):
-        g = GeneratedText.query.all()
+    # @text_gen.response(200, GenerateTextSchema(many=True))
+    # def get(self):
+    #     g = GeneratedText.query.all()
 
-        return g
+    #     return g
 
 
 @text_gen.route("/<string:id>")

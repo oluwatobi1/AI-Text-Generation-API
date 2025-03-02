@@ -39,9 +39,9 @@ def login(data):
         return response(data={"username": user.username, "token": token})
     return error_response("invalid username or password", status=401)
 
-@auth.route("/users", methods=["GET"])
-@auth.response(200, UserSchema(many=True))
-def get_all_users():
-    users = User.query.all()
+# @auth.route("/users", methods=["GET"])
+# @auth.response(200, UserSchema(many=True))
+# def get_all_users():
+#     users = User.query.all()
 
-    return response(data=UserSchema(many=True).dump(users))
+#     return response(data=UserSchema(many=True).dump(users))
