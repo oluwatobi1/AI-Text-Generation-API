@@ -28,7 +28,6 @@ login_test_cases = [
     pytest.param( {"username": "wrong_user", "password":"sample_password"}, 401, None, id="LOGIN:USER_NOT_EXIST"), # User does not exist
     pytest.param({"username": "", "password": "sample_password"}, 422, None, id="LOGIN:EMPTY_USERNAME"),
     pytest.param({"username": "user1", "password": ""}, 422, None, id="LOGIN:EMPTY_PASSWORD"),
-
 ]
 
 @pytest.mark.parametrize("login_data, expected_status, token_expected ", login_test_cases)

@@ -41,7 +41,7 @@ class TextGenResource(MethodView):
         return g
 
 
-@text_gen.route("/<id>")
+@text_gen.route("/<string:id>")
 class TextGenByIdResource(MethodView):
     @jwt_required()
     @text_gen.response(200, GenerateTextSchema)
