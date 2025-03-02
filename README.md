@@ -68,11 +68,11 @@ See below for instructions on running the tests.
 1. **Clone the repository**:
     ```sh
     git clone git@github.com:oluwatobi1/AI-Text-Generation-API.git
-    cd insait_savannah/ai_text_generation
+    cd AI-Text-Generation-API/ai_text_generation
     ```
 
 2. **Set up environment variables**:
-    Create a `.env` file in the app directory (`insait_savannah/ai_text_generation`) and add the following variables:
+    Create a `.env` file in the app directory (`AI-Text-Generation-API/ai_text_generation`) and add the following variables:
     ```env
     OPENAI_API_KEY=myopenapikey
     AI_MODEL_NAME=gpt-4o-mini
