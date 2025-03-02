@@ -72,13 +72,16 @@ See below for instructions on running the tests.
     ```
 
 2. **Set up environment variables**:
-    Create a `.env` file in the root directory and add the following variables:
+    Create a `.env` file in the app directory (`insait_savannah/ai_text_generation`) and add the following variables:
     ```env
     OPENAI_API_KEY=myopenapikey
     AI_MODEL_NAME=gpt-4o-mini
     AI_MODEL_PROVIDER=openai
     DATABASE_URL=postgresql://user:password@db:5432/mydatabase
     ```
+    or alternatively passed in docker-compose.yml environment section
+   
+    
 
 3. **Build and run the Docker containers**:
     ```sh
