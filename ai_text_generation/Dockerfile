@@ -30,5 +30,6 @@ EXPOSE 5000
 # Set environment variables for production
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
+RUN chmod +x run.sh
 
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:create_app()"]
+CMD [ "sh", "./run.sh" ]
