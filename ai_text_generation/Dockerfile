@@ -13,8 +13,8 @@ ENV PATH="$POETRY_HOME/bin:$PATH"
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 COPY pyproject.toml poetry.lock ./
-RUN poetry config virtualenvs.create false
-RUN poetry install --no-interaction --no-ansi --no-root
+RUN poetry config virtualenvs.create false &&  poetry install --no-interaction --no-ansi --no-root
+
 
 FROM base AS final
 
