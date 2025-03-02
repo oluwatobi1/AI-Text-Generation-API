@@ -38,8 +38,5 @@ def test_user(db_session):
 @pytest.fixture
 def auth_header(test_user):
     token = create_access_token(identity=test_user.id)
-    # with client.application.test_request_context():
-        # response = client.post(url_for("auth.login"), json={"username": test_user.username, "password": "test_password"})
-        # token = response.json.get("data").get("token")
     return {"Authorization": f"Bearer {token}"}
 
