@@ -21,7 +21,7 @@ Service that allows users to generate and store AI-generated text using OpenAI's
 - **OpenAI API**: Used to generate text responses based on user prompts.
 - Store responses in the database for later retrieval.
 
-<!-- ## Testing
+## Testing
 
 - **Unit Tests**: Test database models, authentication, and API endpoints.
 - **Integration Tests**: Ensure end-to-end functionality works correctly.
@@ -39,12 +39,39 @@ Service that allows users to generate and store AI-generated text using OpenAI's
 3. Build and run the Docker containers using Docker Compose.
 4. Access the API endpoints to register, authenticate, generate text, and manage stored records.
 
+## Getting Started with Docker Composel
+
+1. **Clone the repository**:
+    ```sh
+    git clone git@github.com:oluwatobi1/AI-Text-Generation-API.git
+    cd insait_savannah/ai_text_generation
+    ```
+
+2. **Set up environment variables**:
+    Create a `.env` file in the root directory and add the following variables:
+    ```env
+    OPENAI_API_KEY=myopenapikey
+    AI_MODEL_NAME=gpt-4o-mini
+    AI_MODEL_PROVIDER=openai
+    DATABASE_URL=postgresql://user:password@db:5432/mydatabase
+    ```
+
+3. **Build and run the Docker containers**:
+    ```sh
+    docker-compose up --build
+    ```
+
+4. **Access the API**:
+    The API will be available at `http://localhost:5000`. You can now register, authenticate, generate text, and manage stored records using the provided endpoints.
+5. **Run tests**:
+    ```sh
+    docker compose run --rm test
+
+    ```
+
+## API Documentation
+ - Swagger UI: `http://localhost:5000/swagger-ui`
+
 ## Contributing
 
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Submit a pull request with a detailed description of your changes.
-
-## License
-
-This project is licensed under the MIT License. -->
+1. Interested, Sure, you're welcome.
