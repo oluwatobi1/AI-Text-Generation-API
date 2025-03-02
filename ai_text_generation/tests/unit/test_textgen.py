@@ -40,7 +40,7 @@ def test_generate_text(mock_ai_service, client, auth_header, input_data, expecte
 update_prompt_test_cases = [
     pytest.param("ceb6ddebd6d7494c9449c144ff256141", {"prompt": "updated the prompt"}, 200, "updated AI response", id="UPDATE:VALID_TEXT_GENERATION"),
     pytest.param("non_existent_text_id", {"prompt": "again the prompt"}, 404, None, id="UPDATE:NON_EXISTENT_TEXT"),
-    pytest.param("rand", None, 401, None, id="UPDATE:UNAUTHORIZED"),
+    pytest.param("unauthorized_request_text_id", None, 401, None, id="UPDATE:UNAUTHORIZED"),
 ]
 
 @pytest.mark.parametrize("text_id, input_data, expected_status, mock_response", update_prompt_test_cases)
@@ -65,7 +65,7 @@ def test_update_prompt(mock_ai_service, client, auth_header,sample_text, text_id
 delete_text_test_cases = [
     pytest.param("ceb6ddebd6d7494c9449c144ff256141", 200, True, id="DELETE:VALID_TEXT_GENERATION"),
     pytest.param("non_existent_text_id", 404, True, id="DELETE:NON_EXISTENT_TEXT"),
-    pytest.param("unauthorized_request", 401, False, id="DELETE:UNAUTHORIZED"),
+    pytest.param("unauthorized_request_text_id", 401, False, id="DELETE:UNAUTHORIZED"),
 ]
 
 @pytest.mark.parametrize("text_id, expected_status, is_authenticated", delete_text_test_cases)
@@ -85,7 +85,7 @@ def test_delete_text(client, auth_header, sample_text, text_id, expected_status,
 get_text_test_cases = [
     pytest.param("ceb6ddebd6d7494c9449c144ff256141", 200, True, id="GET:VALID_TEXT_GENERATION"),
     pytest.param("non_existent_text_id", 404, True, id="GET:NON_EXISTENT_TEXT"),
-    pytest.param("unauthorized_request", 401, False, id="GET:UNAUTHORIZED"),
+    pytest.param("unauthorized_request_text_id", 401, False, id="GET:UNAUTHORIZED"),
 ]
 
 @pytest.mark.parametrize("text_id, expected_status, is_authenticated", get_text_test_cases)
