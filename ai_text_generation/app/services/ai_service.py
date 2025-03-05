@@ -2,6 +2,7 @@ from app.config import Config
 from langchain.chat_models import init_chat_model
 from app.services.ai_providers.openai_provider import OpenAIProvider
 
+# Factory function to get the AI provider
 def get_ai_provider():
     provider_map = {
         "openai": OpenAIProvider,

@@ -13,10 +13,6 @@ class GeneratedTextRepository:
     def get_user_generated_texts_by_id(id, user_id):
         return GeneratedText.query.filter_by(id=id, user_id=user_id).first()
 
-    @staticmethod
-    def get_generated_text_by_id(text_id):
-        return GeneratedText.query.get(text_id)
-
 
     @staticmethod
     def delete_generated_text(text):
