@@ -31,3 +31,4 @@ class Config:
     AI_MODEL_NAME = os.getenv("AI_MODEL_NAME", "llama3-8b-8192")
     AI_MODEL_PROVIDER = os.getenv("AI_MODEL_PROVIDER", "local")
     PORT = os.getenv("PORT", 8000)
+    DEBUG = os.getenv("DEBUG", True)
