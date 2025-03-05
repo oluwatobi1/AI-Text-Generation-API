@@ -4,9 +4,7 @@ from app.services.ai_providers.openai_provider import OpenAIProvider
 
 
 def test_get_ai_provider(monkeypatch):
-    """Test that `get_ai_provider` correctly returns an AI provider instance."""
-    
-    # Mock the config setting for AI_MODEL_PROVIDER
+    """Test `get_ai_provider` correctly returns an AI provider instance."""
     monkeypatch.setattr("app.config.Config.AI_MODEL_PROVIDER", "openai")
 
     provider = get_ai_provider()
@@ -15,9 +13,7 @@ def test_get_ai_provider(monkeypatch):
 
 @patch("app.services.ai_service.get_ai_provider") 
 def test_ai_service_get_response(mock_get_ai_provider):
-    """Test that AIService correctly calls the provider's get_response method."""
-    
-    # Create a mock AI provider instance
+    """Test AIService correctly calls the provider's get_response method."""
     mock_provider = mock_get_ai_provider.return_value
     mock_provider.get_response.return_value = "Mocked AI response"
 

@@ -54,12 +54,10 @@ def test_update_generated_text(db_session, test_user):
     generated_text = GeneratedTextRepository.create_generated_text(
         user_id=test_user.id, prompt="Old prompt", response="Old response"
     )
-
     generated_text.prompt = "Updated prompt"
     generated_text.response = "Updated response"
 
     updated_text = GeneratedTextRepository.update_generated_text(generated_text)
-
     assert updated_text is not None
     assert updated_text.prompt == "Updated prompt"
     assert updated_text.response == "Updated response"
