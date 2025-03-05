@@ -7,6 +7,8 @@ from flask_cors import CORS
 from flask_smorest import Api
 from flask_migrate import Migrate
 
+from app.utils.logger import setup_logging
+
 db = SQLAlchemy()
 
 jwt = JWTManager()
@@ -17,6 +19,7 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     api = Api(app)
+    setup_logging()
 
     @app.route("/")
     def home():
